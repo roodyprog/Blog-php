@@ -6,27 +6,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style.css" rel="stylesheet">
+    <?php if (!empty($_SESSION['login'])) { ?>
+        <link href="css/admin.css" rel="stylesheet">
+    <?php } ?>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
 
 <body>
+    <?php if (!empty($_SESSION['login'])) { ?>
+        <!--checkbox and boutton sidebar-->
+        <input type="checkbox" id="check">
 
-    <header>
-        <nav>
-            <ul class="navBar">
-                <li><a class="active" href="index.php">Home</a></li>
-                <li><a href="admin.php">admin</a></li>
-                <?php if (!empty($_SESSION['login'])) { ?>
-                    <li id="right" style="color:white;"><?= $_SESSION['login'] ?><a href="logout.php">logout</a></li>
-                <?php } ?>
-                <?php if (empty($_SESSION['login'])) { ?>
-                    <li id="right"><a href="login.php">login</a></li>
-                    <li id="right"><a href="signup.php">sign up</a></li>
-                <?php } ?>
-            </ul>
-        </nav>
-    </header>
+        <!-- header area start-->
+        <header>
+            <!--checkbox and boutton sidebar-->
+            <label for="check">
+                <i class="fas fa-bars" id="sidebar_btn"></i>
+            </label>
+            <!--logo of site -->
+            <div class="left_area">
+                <h3>RE : <span>Dev</span></h3>
+            </div>
+            <dev class="right_area">
+                <a href="../logout.php" class="logout_btn">Logout</a>
+            </dev>
+        </header>
+        <!-- header area end-->
 
+        <!--mobile navigation bar start-->
+        <div class="mobile_nav">
+            <div class="nav_bar">
+                <img src="./img/roody.png" class="mobile_profile_img" alt="photo de profile">
+                <i class="fa fa-bars nav_btn"></i>
+            </div>
+        </div>
+        <div class="mobile_nav_items">
+            <a href="# "><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+            <a href="#"><i class="fas fa-cogs"></i><span>Skills</span></a>
+            <a href="#"><i class="fas fa-th"></i><span>porfollio</span></a>
+            <a href="#"><i class="fas fa-info-circle"></i><span>Abouts</span></a>
+            <a href="#"><i class="fas fa-sliders-h"></i><span>Setting</span></a>
+        </div>
+        <!--mobile navigation bar end-->
+        <!--sidebar start-->
+        <div class="sidebar">
+            <div class="profile_info">
+                <img src="./img/roody.png" class="profile_image" alt="photo de profile">
+                <h4>Roody Exantus : <?= $_SESSION['login'] ?></h4>
+                <!--the intems on navigation start-->
+            </div>
+            <a href="# "><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+            <a href="#"><i class="fas fa-cogs"></i><span>Skills</span></a>
+            <a href="#"><i class="fas fa-th"></i><span>porfollio</span></a>
+            <a href="../cv/index.html"><i class="fas fa-info-circle"></i><span>Abouts</span></a>
+            <a href="#"><i class="fas fa-sliders-h"></i><span>Setting</span></a>
+        </div>
+        <!--the intems on navigation start-->
+        <!--sidebar end-->
+    <?php } else { ?>
+        <header>
+            <nav>
+                <ul class="navBar">
+                    <li><a class="active" href="index.php">Home</a></li>
+                    <?php if (empty($_SESSION['login'])) { ?>
+                        <li id="right"><a href="login.php">login</a></li>
+                        <li id="right"><a href="signup.php">sign up</a></li>
+                    <?php } ?>
+                </ul>
+            </nav>
+        </header>
+    <?php } ?>
     <main>
         <p><?php //var_dump($_SESSION); 
             ?></p>

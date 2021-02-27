@@ -18,7 +18,7 @@ if (!empty($_POST['login']) && !empty($_POST['password'])){
     if(password_verify($_POST['password'], $user['password'])){
 
         $_SESSION['login'] = $login;
-        header('Location: admin.php');
+        header('Location: admin/admin.php');
         exit();
     }else{
         $alert = "le mot de passe ou le nom d'utilisateur est incorrect";

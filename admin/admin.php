@@ -1,5 +1,5 @@
 <?php
-require "models/CategorieModel.php";
+require "../models/CategorieModel.php";
 session_start(); // connexion session
 
  
@@ -11,5 +11,5 @@ if (empty($_SESSION['login'])) {
 $categorieModel = new CategorieModel() ;
 $categories = $categorieModel->getCategorie();
 
-$template = 'views/admin.phtml';
-require "views/layout.phtml";
+$template = '../views/admin.phtml';
+require "../views/layout.phtml";
