@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <main class="container">
+        <span class="alert delete">
+            <?php if (!empty($_SESSION['notification'])) {
+                echo $_SESSION['notification'];
+                unset($_SESSION['notification']);
+            } ?>
+        </span>
+        <?php
+        foreach ($articles as $key => $article) :
+        ?><div class="card">
+                <div class="container_card">
+                    <div class="items">
+                        <span class="badge user_badge"><?= $article['lastname'] ?></span>
+                        <span class="badge categorie_badge"><?= $article['name'] ?></span>
+                        <span class="badge categorie_badge"><?= $article['dateArticle'] ?></span>
+                    </div>
+                    <a><img class="img_article" src="<?= $article['image']; ?>" alt=""></a>
+                    <h4><?= $article['title']; ?></h4>
+                    <p><?= substr($article['content'], 0, 300); ?></p>
+                    <a href="article.php?article=<?= $article['idArticle']; ?>">Lire plus</a>
+
+
+
+                    <?php if (!empty($_SESSION['login'])) { ?>
+                        <a href="deleteArticle.php?article=<?= $article['idArticle']; ?>">supprime</a>
+                        <a href="showUpdateArticle.php?article=<?= $article['idArticle']; ?>">modifier</a>
+                    <?php } ?>
+
+                </div>
+            </div>
+        <?php endforeach ?>
+    </main>
+</body>
+
+</html>

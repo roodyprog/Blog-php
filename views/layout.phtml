@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Mon blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul class="navBar">
+                <li><a class="active" href="index.php">Home</a></li>
+                <li><a href="admin.php">admin</a></li>
+                <?php if (!empty($_SESSION['login'])) { ?>
+                    <li id="right" style="color:white;"><?= $_SESSION['login'] ?><a href="logout.php">logout</a></li>
+                <?php } ?>
+                <?php if (empty($_SESSION['login'])) { ?>
+                    <li id="right"><a href="login.php">login</a></li>
+                    <li id="right"><a href="signup.php">sign up</a></li>
+                <?php } ?>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <p><?php //var_dump($_SESSION); 
+            ?></p>
+
+        <?php include $template ?>
+    </main>
+
+    <footer class="footer">
+        <span>Created By <a href="#">Roody Exantus</a> | <span class="far fa-copyright"></span> 2021 All rights
+            reserved.</span>
+    </footer>
+</body>
+
+</html>

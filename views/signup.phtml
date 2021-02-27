@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <main class="fondd">
+        <div>
+            <!-- zone de connexion -->
+
+            <form action="signup.php" method="POST">
+                <h1>Sign Up</h1>
+                <div class="grid-container container">
+                    <div class="grid-item fond">
+
+                    </div>
+                    <div class="grid-item">
+                        <div>
+                            <label for="lastname">Nom</label>
+                            <input type="text" placeholder="Nom" id="lastname" name="lastname" required>
+                        </div>
+                        <div>
+                            <label for="firstname">prénom</label>
+                            <input type="text" placeholder="prénom" id="firstname" name="firstname" required>
+                        </div>
+                        <div>
+                            <label for="login">login</label>
+                            <input type="text" placeholder="Entrer votre pseudo" id="login" name="pseudo" required>
+                        </div>
+                        <div>
+                            <label for="password">Mot de passe</label>
+                            <input type="password" placeholder="Entrer le mot de passe" id="password" name="password" required>
+                        </div>
+
+                        <input type="submit" id='submit' class="submit item" value='login'>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

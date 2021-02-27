@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <main class="container">
+        
+        <div class="card">
+            <div class="container_card">
+                <a><img class="img_article" src="<?= $article['image']; ?>" alt=""></a>
+                <h4><?= $article['title']; ?></h4>
+                <p><?= $article['content']; ?></p>
+
+                <span class="badge user_badge"><?= $article['lastname'] ?></span>
+                <span class="badge categorie_badge"><?= $article['name'] ?></span>
+                <span class="badge categorie_badge"><?= $article['dateArticle'] ?></span>
+            </div>
+        </div>
+        <div class="">
+            <?php foreach ($messages as $key => $message) : ?>
+                <div>
+                    <label for="comment_pseudo"><?= $message['pseudo']; ?> :</label>
+                    <p id="comment_pseudo" class="commentaire"><?= $message['message']; ?></p>
+                </div>
+            <?php endforeach ?>
+        </div>
+        <div class="card">
+            <form method="post" action="addComment.php?article=<?= $article['idArticle']; ?>">
+                <div>
+                    <label for="pseudo">pseudo</label>
+                    <input type="text" name="pseudo">
+                </div>
+                <div>
+                    <label for="comment">commentaire :</label>
+                    <textarea cols=30 id="comment" name="comment"></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="validate">Envoye</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

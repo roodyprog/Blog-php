@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <br>
+    <?php //echo "categories :";
+    //var_dump($categories); 
+    ?>
+    <span class="alert success">
+        <?php if (!empty($_SESSION['notification'])) {
+            echo $_SESSION['notification'];
+            unset($_SESSION['notification']);
+        } ?>
+    </span>
+    <form class="form" enctype="multipart/form-data" action="addArticle.php" method="post">
+        <h2 class="title">Ajoute un article</h2>
+        <div class="column left">
+            <div class="">
+                <label for="tilte">Title</label>
+                <input type="" name="title" id="title" value="">
+            </div>
+            <div>
+                <label for="content">Contentu</label>
+                <textarea id="content" name="content" rows="10" cols="60"></textarea>
+            </div>
+            <div>
+                <input type="file" name="image" id="image" value="">
+            </div>
+        </div>
+        <div class="column right">
+            <div>
+                <label for="date"></label>
+                <input type="date" name="date" id="date" value="">
+            </div>
+            <div>
+                <label for="categorie">Choose a categorie:</label>
+
+                <select name="categorie" id="categorie">
+                    <option value="">--Please choose an categorie--</option>
+                    <?php foreach ($categories as $categorie) : ?>
+                        <option value="<?= $categorie['idCategorie']; ?>"><?= $categorie['name']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+        <button type="submit">Poster</button>
+    </form>
+</body>
+
+</html>

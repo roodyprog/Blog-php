@@ -1,0 +1,35 @@
+ARTICLE
+idArticle CLÉ PRIMAIRE INT AUTO INCREMENT
+title VARCHAR(150)
+content TEXT
+image   VARCHAR(100) 
+idCategorie INT CLÉ ÉTRANGÈRE
+idUser INT CLÉ ÉTRANGÈRE
+dateArticle DATE
+
+
+USER
+idUser CLÉ PRIMAIRE INT AUTO INCREMENT
+login VARCHAR(30)
+password  VARCHAR(150)
+lastname VARCHAR(10)
+firstname VARCHAR(10)
+role VARCHAR(10)
+
+
+COMMENT
+idComment CLÉ PRIMAIRE INT AUTO INCREMENT
+pseudo VARCHAR(20)
+idArticle INT CLÉ ÉTRANGÈRE
+message TEXT
+dateComment DATE
+
+
+CATEGORIE
+idCategorie CLÉ PRIMAIRE INT AUTO INCREMENT
+name VARCHAR(30)
+description TEXT
+
+
+
+
