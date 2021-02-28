@@ -1,5 +1,5 @@
 <?php
-require "models/CommentModel.php";
+require "../models/CommentModel.php";
 session_start();
 
 //requete SQL

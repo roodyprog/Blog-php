@@ -1,5 +1,5 @@
 <?php
-require "models/ArticleModel.php";
+require "../models/ArticleModel.php";
 session_start(); //on commence une session
  
 $bdd = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');//connexion base de donnée
@@ -9,6 +9,6 @@ $article = $_GET['article'];
 
 $articleModel = new ArticleModel();
 $article = $articleModel->getUpdateArticle($article);
-$template = "views/showUpdateArticle.phtml";
-require "views/layout.phtml";
+$template = "../views/showUpdateArticle.phtml";
+require "../views/layout.phtml";
 //

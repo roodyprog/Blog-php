@@ -1,5 +1,5 @@
 <?php
-require "models/ArticleModel.php";
+require "../models/ArticleModel.php";
 session_start(); //on commence une session
  
 $article = $_GET['article'];
@@ -8,7 +8,7 @@ $content = $_POST['content'];
 $categorie = $_POST['categorie'];
 $date = $_POST['date'];
 if(!empty($_FILES)){
-    $uploaddir = 'img/uploads/';
+    $uploaddir = '../img/uploads/';
     $uploadfile = $uploaddir . basename($_FILES['image']['name']);
     //var_dump($_FILES);
     if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {

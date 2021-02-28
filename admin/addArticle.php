@@ -1,5 +1,5 @@
 <?php
-require "models/ArticleModel.php";
+require "../models/ArticleModel.php";
 session_start();
 
 if (empty($_SESSION['login'])) {

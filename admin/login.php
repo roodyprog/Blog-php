@@ -1,5 +1,5 @@
 <?php
-require "models/UserModel.php";
+require "../models/UserModel.php";
 session_start(); //initaliser la session avec l'utilisateur
 
  
@@ -24,5 +24,5 @@ if (!empty($_POST['login']) && !empty($_POST['password'])){
         $alert = "le mot de passe ou le nom d'utilisateur est incorrect";
     }
 } 
-$template= "views/login.phtml";
-require "views/layout.phtml";
+$template= "../views/login.phtml";
+require "../views/layout.phtml";

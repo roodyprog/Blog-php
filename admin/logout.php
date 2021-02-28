@@ -5,6 +5,6 @@ if (empty($_SESSION['login'])) {
     exit();
 }
 unset($_SESSION['login']);
-header("location:index.php");
+header("location: ../index.php");
 exit();
  

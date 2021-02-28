@@ -5,9 +5,11 @@
     <title>Mon blog</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
+    
     <?php if (!empty($_SESSION['login'])) { ?>
-        <link href="css/admin.css" rel="stylesheet">
+        <link href="http://localhost/perso/php/blog/css/admin.css" rel="stylesheet">
+    <?php } else{?>
+        <link href="http://localhost/perso/php/blog/css/style.css" rel="stylesheet">
     <?php } ?>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -30,7 +32,7 @@
                 <h3>RE : <span>Dev</span></h3>
             </div>
             <dev class="right_area">
-                <a href="../logout.php" class="logout_btn">Logout</a>
+                <a href="http://localhost/perso/php/blog/admin/logout.php" class="logout_btn">Logout</a>
             </dev>
         </header>
         <!-- header area end-->
@@ -53,7 +55,7 @@
         <!--sidebar start-->
         <div class="sidebar">
             <div class="profile_info">
-                <img src="./img/roody.png" class="profile_image" alt="photo de profile">
+                <img src="../img/roody.png" class="profile_image" alt="photo de profile">
                 <h4>Roody Exantus : <?= $_SESSION['login'] ?></h4>
                 <!--the intems on navigation start-->
             </div>
@@ -69,10 +71,11 @@
         <header>
             <nav>
                 <ul class="navBar">
-                    <li><a class="active" href="index.php">Home</a></li>
+                    <li><a class="active" href="../index.php">Home</a></li>
                     <?php if (empty($_SESSION['login'])) { ?>
-                        <li id="right"><a href="login.php">login</a></li>
-                        <li id="right"><a href="signup.php">sign up</a></li>
+                        <!--lien absolu-->
+                        <li id="right"><a href="http://localhost/perso/php/blog/admin/login.php">login</a></li>
+                        <li id="right"><a href="http://localhost/perso/php/blog/admin/signup.php">sign up</a></li>
                     <?php } ?>
                 </ul>
             </nav>
@@ -84,11 +87,11 @@
 
         <?php include $template ?>
     </main>
-
-    <footer class="footer">
-        <span>Created By <a href="#">Roody Exantus</a> | <span class="far fa-copyright"></span> 2021 All rights
-            reserved.</span>
-    </footer>
+    
+        <footer class="footer">
+            <span>Created By <a href="#">Roody Exantus</a> | <span class="far fa-copyright"></span> 2021 All rights
+                reserved.</span>
+        </footer>
 </body>
 
 </html>
