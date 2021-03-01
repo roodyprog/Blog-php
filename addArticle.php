@@ -1,8 +1,9 @@
 <?php
-require "../models/ArticleModel.php";
-session_start();
+require "models/ArticleModel.php";
+require "class/UserSession.class.php";
+$userSession = new UserSession();
 
-if (empty($_SESSION['login'])) {
+if ($userSession->isConnected()) {
     header('Location: login.php');
     exit();
 }

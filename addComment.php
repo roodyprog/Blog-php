@@ -1,6 +1,7 @@
 <?php
-require "../models/CommentModel.php";
-session_start();
+require "models/CommentModel.php";
+require "class/UserSession.class.php";
+$userSession = new UserSession();
 
 //requete SQL
 /*var_dump($_GET);

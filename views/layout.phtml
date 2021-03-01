@@ -5,10 +5,11 @@
     <title>Mon blog</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <?php if (!empty($_SESSION['login'])) { ?>
+
+    <?php  $userSession = new UserSession();
+         if ($userSession->isConnected()) { ?>
         <link href="http://localhost/perso/php/blog/css/admin.css" rel="stylesheet">
-    <?php } else{?>
+    <?php } else { ?>
         <link href="http://localhost/perso/php/blog/css/style.css" rel="stylesheet">
     <?php } ?>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -17,7 +18,7 @@
 </head>
 
 <body>
-    <?php if (!empty($_SESSION['login'])) { ?>
+    <?php if ($userSession->isConnected()) { ?>
         <!--checkbox and boutton sidebar-->
         <input type="checkbox" id="check">
 
@@ -32,7 +33,7 @@
                 <h3>RE : <span>Dev</span></h3>
             </div>
             <dev class="right_area">
-                <a href="http://localhost/perso/php/blog/admin/logout.php" class="logout_btn">Logout</a>
+                <a href="http://localhost/perso/php/blog/logout.php" class="logout_btn">Logout</a>
             </dev>
         </header>
         <!-- header area end-->
@@ -40,30 +41,27 @@
         <!--mobile navigation bar start-->
         <div class="mobile_nav">
             <div class="nav_bar">
-                <img src="./img/roody.png" class="mobile_profile_img" alt="photo de profile">
+                <img src="http://localhost/perso/php/blog/img/roody.png" class="mobile_profile_img" alt="photo de profile">
                 <i class="fa fa-bars nav_btn"></i>
             </div>
         </div>
         <div class="mobile_nav_items">
-            <a href="# "><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-            <a href="#"><i class="fas fa-cogs"></i><span>Skills</span></a>
-            <a href="#"><i class="fas fa-th"></i><span>porfollio</span></a>
-            <a href="#"><i class="fas fa-info-circle"></i><span>Abouts</span></a>
-            <a href="#"><i class="fas fa-sliders-h"></i><span>Setting</span></a>
+            <a href="# "><i class="fas fa-desktop"></i><span>AJOUTER</span></a>
+            <a href="#"><i class="fas fa-cogs"></i><span>HOME</span></a>
+            <a href="#"><i class="fas fa-th"></i><span>MODIFIER</span></a>
+
         </div>
         <!--mobile navigation bar end-->
         <!--sidebar start-->
         <div class="sidebar">
             <div class="profile_info">
-                <img src="../img/roody.png" class="profile_image" alt="photo de profile">
-                <h4>Roody Exantus : <?= $_SESSION['login'] ?></h4>
+                <img src="http://localhost/perso/php/blog/img/roody.png" class="profile_image" alt="photo de profile">
+                <h4><?= $_SESSION['login'] ?></h4>
                 <!--the intems on navigation start-->
             </div>
-            <a href="# "><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-            <a href="#"><i class="fas fa-cogs"></i><span>Skills</span></a>
-            <a href="#"><i class="fas fa-th"></i><span>porfollio</span></a>
-            <a href="../cv/index.html"><i class="fas fa-info-circle"></i><span>Abouts</span></a>
-            <a href="#"><i class="fas fa-sliders-h"></i><span>Setting</span></a>
+            <a href="http://localhost/perso/php/blog/admin.php"><i class="fas fa-desktop"></i><span>AJOUTER</span></a>
+            <a href="#"><i class="fas fa-cogs"></i><span>MODIFIER</span></a>
+            <a href="http://localhost/perso/php/blog/index.php"><i class="fas fa-th"></i><span>HOME</span></a>
         </div>
         <!--the intems on navigation start-->
         <!--sidebar end-->
@@ -71,11 +69,11 @@
         <header>
             <nav>
                 <ul class="navBar">
-                    <li><a class="active" href="../index.php">Home</a></li>
-                    <?php if (empty($_SESSION['login'])) { ?>
+                    <li><a class="active" href="index.php">Home</a></li>
+                    <?php $userSession=new UserSession(); if (!$userSession->isConnected()) { ?>
                         <!--lien absolu-->
-                        <li id="right"><a href="http://localhost/perso/php/blog/admin/login.php">login</a></li>
-                        <li id="right"><a href="http://localhost/perso/php/blog/admin/signup.php">sign up</a></li>
+                        <li id="right"><a href="http://localhost/perso/php/blog/login.php">login</a></li>
+                        <li id="right"><a href="http://localhost/perso/php/blog/signup.php">sign up</a></li>
                     <?php } ?>
                 </ul>
             </nav>
@@ -87,11 +85,18 @@
 
         <?php include $template ?>
     </main>
-    
-        <footer class="footer">
-            <span>Created By <a href="#">Roody Exantus</a> | <span class="far fa-copyright"></span> 2021 All rights
-                reserved.</span>
-        </footer>
+
+    <footer class="footer">
+        <span>Created By <a href="#">Roody Exantus</a> | <span class="far fa-copyright"></span> 2021 All rights
+            reserved.</span>
+    </footer>
 </body>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.nav_btn').click(function() {
+            $('.mobile_nav_items').toggleClass('active');
+        });
+    });
+</script>
 
 </html>

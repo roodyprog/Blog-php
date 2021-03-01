@@ -1,17 +1,14 @@
-    
-<main>
-
-    <div class="content">
-        <div class="card">
-        <p>skdlskdlkslklqjlsdklqkdljl</p>
-            <span class="alert success">
-                <?php if (!empty($_SESSION['notification'])) {
-                    echo $_SESSION['notification'];
-                    unset($_SESSION['notification']);
-                } ?>
-            </span>
-            <form class="form" enctype="multipart/form-data" action="addArticle.php" method="post">
-                <h2 class="title">Ajoute un article</h2>
+<div class="content">
+    <div class="card">
+        <span class="alert success">
+            <?php if (!empty($_SESSION['notification'])) {
+                echo $_SESSION['notification'];
+                unset($_SESSION['notification']);
+            } ?>
+        </span>
+        <form class="form" enctype="multipart/form-data" action="addArticle.php" method="post">
+            <h2 class="title">Ajoute un article</h2>
+            <div class="flex">
                 <div class="column left">
                     <div class="">
                         <label for="tilte">Title</label>
@@ -21,11 +18,12 @@
                         <label for="content">Contentu</label>
                         <textarea id="content" name="content" rows="10" cols="60"></textarea>
                     </div>
+
+                </div>
+                <div class="column right">
                     <div>
                         <input type="file" name="image" id="image" value="">
                     </div>
-                </div>
-                <div class="column right">
                     <div>
                         <label for="date"></label>
                         <input type="date" name="date" id="date" value="">
@@ -41,16 +39,9 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit">Poster</button>
-            </form>
-        </div>
-        </div>
+            </div>
 
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('.nav_btn').click(function() {
-                    $('.mobile_nav_items').toggleClass('active');
-                });
-            });
-        </script>
-</main>
+            <button type="submit" class="submit">Ajouter</button>
+        </form>
+    </div>
+</div>

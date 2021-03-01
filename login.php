@@ -1,6 +1,6 @@
 <?php
-require "../models/UserModel.php";
-session_start(); //initaliser la session avec l'utilisateur
+require "models/UserModel.php";
+require "class/UserSession.class.php";
 
  
 //var_dump($user);
@@ -18,11 +18,13 @@ if (!empty($_POST['login']) && !empty($_POST['password'])){
     if(password_verify($_POST['password'], $user['password'])){
 
         $_SESSION['login'] = $login;
-        header('Location: admin/admin.php');
+        $userSession = new UserSession();
+        $userSession->createSession($user['idUser'], $user['login'],$user['password'], $user['firstname'], $user['lastname'], $user['role']);
+        header('Location: admin.php');
         exit();
     }else{
         $alert = "le mot de passe ou le nom d'utilisateur est incorrect";
     }
 } 
-$template= "../views/login.phtml";
-require "../views/layout.phtml";
+$template= "views/login.phtml";
+require "views/layout.phtml";

@@ -3,5 +3,11 @@
     "phpserver.browser": "",
     "phpserver.phpPath": "C:\\\\wamp64\\\\bin\\\\php\\\\php7.4.9\\php.exe",
     "phpserver.router": "",
-    "phpserver.port": 5500
+    "phpserver.port": 5500,
+    "code-runner.cwd": "C:\\\\wamp64\\\\bin\\\\php\\\\php7.4.9\\php.exe",
+    "code-runner.executorMap": {
+        "javascript": "node",
+        "php": "C:\\\\wamp64\\\\bin\\\\php\\\\php7.4.9\\php.exe",
+         
+    }
 }
