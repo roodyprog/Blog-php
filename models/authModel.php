@@ -2,6 +2,7 @@
 
 class DataBase
 {
+    //private PDO $bdd;//COMPOSITION
 
     public function __construct()
     {
@@ -21,4 +22,5 @@ class DataBase
         $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $bdd;*/  
     }
+
 }

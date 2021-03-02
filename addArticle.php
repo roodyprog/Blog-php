@@ -1,6 +1,5 @@
 <?php
-require "models/ArticleModel.php";
-require "class/UserSession.class.php";
+require 'autoloader.php';
 $userSession = new UserSession();
 
 if ($userSession->isConnected()) {

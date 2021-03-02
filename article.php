@@ -1,7 +1,5 @@
 <?php
-require "models/ArticleModel.php";
-require "models/CommentModel.php";
-require "class/UserSession.class.php";
+require 'autoloader.php';
 $userSession = new UserSession();
  
 //show article

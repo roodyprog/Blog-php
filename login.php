@@ -1,9 +1,8 @@
 <?php
-require "models/UserModel.php";
-require "class/UserSession.class.php";
+require 'autoloader.php';
 
  
-//var_dump($user);
+//var_dump($_SESSION);
 $alert="";
 
 //RECUPERER LES DONNÉES DU FORMULAIRES 

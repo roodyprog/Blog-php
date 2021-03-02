@@ -1,6 +1,5 @@
 <?php
-require "models/ArticleModel.php";
-require_once "class/UserSession.class.php";
+require 'autoloader.php';
 
 $articleModel = new ArticleModel();
 $articles = $articleModel->getAllArticles();

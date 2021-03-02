@@ -1,6 +1,5 @@
 <?php
-require "models/UserModel.php";
-session_start();
+require 'autoloader.php';
 
 $lastname = $_POST['lastname'];
 $firstname = $_POST['firstname'];

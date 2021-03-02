@@ -1,9 +1,8 @@
 <?php
-require "models/CategorieModel.php";
-require "class/UserSession.class.php";
+require 'autoloader.php';
 $userSession = new UserSession();
 // si un  utilisateur c'est connecté
-if ($userSession->isConnected()) {
+if (!$userSession->isConnected()) {
     header('Location: login.php');
     exit();
 }

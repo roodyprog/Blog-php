@@ -8,9 +8,9 @@
 
     <?php  $userSession = new UserSession();
          if ($userSession->isConnected()) { ?>
-        <link href="http://localhost/perso/php/blog/css/admin.css" rel="stylesheet">
+        <link href="css/admin.css" rel="stylesheet">
     <?php } else { ?>
-        <link href="http://localhost/perso/php/blog/css/style.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
     <?php } ?>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -33,7 +33,7 @@
                 <h3>RE : <span>Dev</span></h3>
             </div>
             <dev class="right_area">
-                <a href="http://localhost/perso/php/blog/logout.php" class="logout_btn">Logout</a>
+                <a href="logout.php" class="logout_btn">Logout</a>
             </dev>
         </header>
         <!-- header area end-->
@@ -41,7 +41,7 @@
         <!--mobile navigation bar start-->
         <div class="mobile_nav">
             <div class="nav_bar">
-                <img src="http://localhost/perso/php/blog/img/roody.png" class="mobile_profile_img" alt="photo de profile">
+                <img src="img/roody.png" class="mobile_profile_img" alt="photo de profile">
                 <i class="fa fa-bars nav_btn"></i>
             </div>
         </div>
@@ -55,13 +55,13 @@
         <!--sidebar start-->
         <div class="sidebar">
             <div class="profile_info">
-                <img src="http://localhost/perso/php/blog/img/roody.png" class="profile_image" alt="photo de profile">
-                <h4><?= $_SESSION['login'] ?></h4>
+                <img src=" img/roody.png" class="profile_image" alt="photo de profile">
+                <h4><?= $_SESSION['user']['login'] ?></h4>
                 <!--the intems on navigation start-->
             </div>
-            <a href="http://localhost/perso/php/blog/admin.php"><i class="fas fa-desktop"></i><span>AJOUTER</span></a>
+            <a href="admin.php"><i class="fas fa-desktop"></i><span>AJOUTER</span></a>
             <a href="#"><i class="fas fa-cogs"></i><span>MODIFIER</span></a>
-            <a href="http://localhost/perso/php/blog/index.php"><i class="fas fa-th"></i><span>HOME</span></a>
+            <a href="index.php"><i class="fas fa-th"></i><span>HOME</span></a>
         </div>
         <!--the intems on navigation start-->
         <!--sidebar end-->

@@ -1,7 +1,8 @@
 <?php
 class UserSession{
     private $id;
-    private $email;
+    private $login;
+    private $password;
     private $firstname;
     private  $lastname;
     private  $role;
@@ -14,7 +15,8 @@ class UserSession{
         }
         if($this->isConnected()){//hydratation
             $this->id = $_SESSION['user']['id'];
-            $this->email = $_SESSION['user']['email'];
+            $this->login = $_SESSION['user']['login'];
+           // $this->password = $_SESSION['user']['password'];
             $this->firstname = $_SESSION['user']['firstname'];
             $this->lastname = $_SESSION['user']['lastname'];
             $this->role = $_SESSION['user']['role'];
@@ -78,7 +80,7 @@ class UserSession{
     //METHODE QUI RETOURNE SI OU NON L'USER EST CONNECTÉ
     public function isConnected()
     {
-        if(empty($_SESSION)){
+        if(empty($_SESSION['user'])){
             return false;//est vide
         }
         else{//n'est pas vide
@@ -86,16 +88,16 @@ class UserSession{
         }
     }
     public function destroy(){
-        unset($_SESSION['user']['login']);//detruit la variable session
+        unset($_SESSION['user']);//detruit la variable session
     }
     public function createSession($id, $login, $firstname, $lastname, $role)
     {
         $this->id = $id;
-        $this->email = $login;
+        $this->login = $login;
+        //$this->password = $password;
         $this->firstname = $firstname;
         $this->lastname =$lastname;
         $this->role = $role;
-
         $_SESSION['user']=["id"=>$id, "login"=>$login, "firstname"=>$firstname, "lastname" => $lastname, "role" => $role];
     }
 }
