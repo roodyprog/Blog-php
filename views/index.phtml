@@ -22,7 +22,7 @@
 
 
 
-                <?php if (!empty($_SESSION['login'])) { ?>
+                <?php if (!empty($_SESSION['user'])) { ?>
                     <a href="deleteArticle.php?article=<?= $article['idArticle']; ?>">supprime</a>
                     <a href="showUpdateArticle.php?article=<?= $article['idArticle']; ?>">modifier</a>
                 <?php } ?>

@@ -3,31 +3,33 @@
 ?>
 
 <form enctype="multipart/form-data" action="updateArticle.php?article=<?= $article['idArticle']; ?>" method="post">
-    <div>
-        <div class="right">
-            <label for="tilte">Title</label>
-            <input type="" name="title" id="title" value="<?= $article['title'] ?>">
+    <div class="content">
+        <div>
+            <div>
+                <label for="tilte">Title</label>
+                <input type="" name="title" id="title" value="<?= $article['title'] ?>">
+            </div>
+            <div>
+                <label for="content">Contentu</label>
+                <textarea id="content" name="content" rows="10" cols="60"><?= $article['content'] ?></textarea>
+            </div>
+            <div>
+                <input type="file" name="image" id="image">
+            </div>
         </div>
         <div>
-            <label for="content">Contentu</label>
-            <textarea id="content" name="content" rows="10" cols="60"><?= $article['content'] ?></textarea>
-        </div>
-        <div>
-            <input type="file" name="image" id="image">
-        </div>
-    </div>
-    <div>
-        <div>
-            <label for="date"></label>
-            <input type="date" name="date" id="date" value="">
-        </div>
-        <div>
-            <label for="categorie">Choose a categorie:</label>
+            <div>
+                <label for="date"></label>
+                <input type="date" name="date" id="date" value="">
+            </div>
+            <div>
+                <label for="categorie">Choose a categorie:</label>
 
-            <select name="categorie" id="categorie">
-                <option value="<?= $article['idCategorie']; ?>"><?= $article['name']; ?></option>
-            </select>
+                <select name="categorie" id="categorie">
+                    <option value="<?= $article['idCategorie']; ?>"><?= $article['name']; ?></option>
+                </select>
+            </div>
         </div>
+        <button type="submit">Poster</button>
     </div>
-    <button type="submit">Poster</button>
 </form>

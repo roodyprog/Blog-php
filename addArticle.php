@@ -2,7 +2,7 @@
 require 'autoloader.php';
 $userSession = new UserSession();
 
-if ($userSession->isConnected()) {
+if (!$userSession->isConnected()) {
     header('Location: login.php');
     exit();
 }

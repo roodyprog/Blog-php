@@ -16,7 +16,7 @@ class UserSession{
         if($this->isConnected()){//hydratation
             $this->id = $_SESSION['user']['id'];
             $this->login = $_SESSION['user']['login'];
-           // $this->password = $_SESSION['user']['password'];
+            $this->password = $_SESSION['user']['password'];
             $this->firstname = $_SESSION['user']['firstname'];
             $this->lastname = $_SESSION['user']['lastname'];
             $this->role = $_SESSION['user']['role'];
@@ -90,14 +90,14 @@ class UserSession{
     public function destroy(){
         unset($_SESSION['user']);//detruit la variable session
     }
-    public function createSession($id, $login, $firstname, $lastname, $role)
+    public function createSession($id, $login, $firstname,$password, $lastname, $role)
     {
         $this->id = $id;
         $this->login = $login;
-        //$this->password = $password;
+        $this->password = $password;
         $this->firstname = $firstname;
         $this->lastname =$lastname;
         $this->role = $role;
-        $_SESSION['user']=["id"=>$id, "login"=>$login, "firstname"=>$firstname, "lastname" => $lastname, "role" => $role];
+        $_SESSION['user']=["id"=>$id, "login"=>$login,"password" => $password, "firstname"=>$firstname, "lastname" => $lastname, "role" => $role];
     }
 }

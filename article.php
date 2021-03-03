@@ -8,7 +8,7 @@ $article = $articleModel->getArticle($_GET['article']);
 
 //show commentaire article
 $commentModel = new commentModel();
-$messages = $commentModel->getComment();
+$messages = $commentModel->getComment($article);
 
 //si la variable article est vide ou l'idArticle n'existe pas alors redirige vers index.php
 if (empty($_GET['article']) || empty($article['idArticle'])) {

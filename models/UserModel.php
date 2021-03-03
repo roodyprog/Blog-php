@@ -1,32 +1,24 @@
 <?php
-require "authModel.php";
-class UserModel
+require './autoloader.php';
+class UserModel extends Model
 {
     public function __construct()
     {
-
+        //appelle construct class model
+        parent::__construct();
     }
-    //login data base
-    public function connexion()
-    {
-
-        $datebase = new DataBase();
-        $bdd = $datebase->loginDataBase();
-        return $bdd;
-    }
+  
     
     public function verifyLogin($login)
     {
-        $bdd = $this->connexion();
-        $requete = $bdd->prepare('SELECT * FROM user WHERE login = ?'); //execution de notre requete
-        $requete->execute([$login]); //execute la requete
-        $user = $requete->fetch(PDO::FETCH_ASSOC); // on parcour dans un tableu 6
+        $sql = 'SELECT * FROM user WHERE login = ?'; //execution de notre requete
+        $user = $this->database->queryOne($sql,array($login));// on parcour dans un tableu 6
         return $user;
     }
 
     public function signUp(){
-        $bdd = $this->connexion();
+      
         //requete prepare 
-        $requete = $bdd->prepare('INSERT INTO user() VALUES()');
+        $sql = 'INSERT INTO user() VALUES()';
     }
 }
